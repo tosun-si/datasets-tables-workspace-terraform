@@ -1,0 +1,17 @@
+steps:
+  - name: hashicorp/terraform:1.5.0
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        ./scripts/init.sh \
+        && ./scripts/select_workspace.sh \
+        && ./scripts/plan.sh
+    env:
+      - 'TF_VAR_project_id=$PROJECT_ID'
+      - 'TF_STATE_BUCKET=$_TF_STATE_BUCKET'
+      - 'TF_STATE_PREFIX=$_TF_STATE_PREFIX'
+      - 'WORKSPACE=$_WORKSPACE'
+      - 'INFRA_ROOT_FOLDER=$_INFRA_ROOT_FOLDER'
+      - 'MODULE_NAME=$_MODULE_NAME'
+      - 'GOOGLE_PROVIDER_VERSION=$_GOOGLE_PROVIDER_VERSION'
