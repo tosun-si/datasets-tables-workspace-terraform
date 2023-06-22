@@ -4,9 +4,8 @@ steps:
     args:
       - '-c'
       - |
-        cd infra/datasets_and_tables \
-        && ./scripts/init.sh \
-        && ./scripts/select_workspace.sh
+        ./scripts/init.sh \
+        && ./scripts/select_workspace.sh \
         && ./scripts/destroy.sh
     env:
       - 'TF_VAR_project_id=$PROJECT_ID'

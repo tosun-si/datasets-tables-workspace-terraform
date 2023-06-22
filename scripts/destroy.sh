@@ -5,4 +5,5 @@ set -u
 echo "#######Destroy the Terraform module"
 
 cd "$INFRA_ROOT_FOLDER/$MODULE_NAME" &&
-  terraform destroy -auto-approve tfplan.out
+  terraform apply -auto-approve &&
+  terraform destroy -auto-approve

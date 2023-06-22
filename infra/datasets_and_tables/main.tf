@@ -11,11 +11,12 @@ resource "google_bigquery_dataset" "datasets" {
 resource "google_bigquery_table" "tables" {
   for_each = {for idx, table in local.tables_flattened : "${table["datasetId"]}_${table["tableId"]}" => table}
 
-  project    = var.project_id
-  depends_on = [google_bigquery_dataset.datasets]
-  dataset_id = "${local.datasetPrefix}${each.value["datasetId"]}"
-  table_id   = each.value["tableId"]
-  clustering = each.value["clustering"]
+  project             = var.project_id
+  depends_on          = [google_bigquery_dataset.datasets]
+  dataset_id          = "${local.datasetPrefix}${each.value["datasetId"]}"
+  table_id            = each.value["tableId"]
+  deletion_protection = false
+  clustering          = each.value["clustering"]
 
   dynamic "time_partitioning" {
     for_each = each.value["partitionType"] != null ? [1] : []
