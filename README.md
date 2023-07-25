@@ -6,6 +6,18 @@ The deployment of IAC part is done with Cloud Build.
 
 ![terraform_with_workspaces_gcp.png](images%2Fterraform_with_workspaces_gcp.png)
 
+The article on this topic :
+
+https://medium.com/google-cloud/terraform-with-workspaces-on-google-cloud-40e3a077f2b1
+
+The video in English :
+
+https://youtu.be/unjDhYP3W-A
+
+The video in French :
+
+https://youtu.be/5pK-qP1YjgY
+
 ## Build from local machine
 
 ### Set env vars in your Shell
